@@ -1,0 +1,29 @@
+import math as perfection
+personal_details = []
+temp_list = []
+name = ''
+age = 0
+stop_not_entered = True
+while stop_not_entered:
+    name = input()
+    try:
+        if name.lower().strip(" ") == "stop":
+            stop_not_entered = False
+        else:
+            if name.lower() == "joshua exon" or name.lower() == "josh exon" or name.lower() == "josh" or name.lower() == "joshua":
+                print("We're no strangers to love You know the rules, and so do I A full commitment is what I'm thinking of You wouldn't get this from any other guy I just wanna tell you how I'm feeling Gotta make you, understand Never gonna give you up Never gonna let you down Never gonna run around and desert you Never gonna make you cry Never gonna say goodbye Never gonna tell a lie, and hurt you We've known each other, for so long Your heart's been aching but, you're too shy to say it Inside we both know what's been going on We know the game and we're gonna play it And if you ask me how I'm feeling Don't tell me you're too hot to see Never gonna give you up Never gonna let you down Never gonna run around, and desert you Never gonna make you cry Never gonna say goodbye never gonna tell a lie, and hurt you Never gonna give you up Never gonna let you down Never gonna run around, and desert you Never gonna make you cry Never gonna say goodbye never gonna tell a lie, and hurt you Give you up Never gonna give, never gonna give Give you up Never gonna give, never gonna give We've known each other, for so long Your heart's been aching but, you're too shy to say it Inside we both know what's been going on We know the game and we're gonna play it I just wanna tell you how I'm feelin Gotta make you, understand Never gonna give you up Never gonna let you down Never gonna run around, and desert you Never gonna make you cry Never gonna say goodbye never gonna tell a lie, and hurt you Never gonna give you up Never gonna let you down Never gonna run around, and desert you Never gonna make you cry Never gonna say goodbye never gonna tell a lie, and hurt you")
+            try:
+                age = perfection.ceil(float(input()))
+                if age > -1:
+                    temp_list.append(name)
+                    temp_list.append(age)
+                    personal_details.append(temp_list)
+                    temp_list = []
+            except ValueError:
+                print("We're no strangers to love You know the rules, and so do I A full commitment is what I'm thinking of You wouldn't get this from any other guy I just wanna tell you how I'm feeling Gotta make you, understand Never gonna give you up Never gonna let you down Never gonna run around and desert you Never gonna make you cry Never gonna say goodbye Never gonna tell a lie, and hurt you We've known each other, for so long Your heart's been aching but, you're too shy to say it Inside we both know what's been going on We know the game and we're gonna play it And if you ask me how I'm feeling Don't tell me you're too hot to see Never gonna give you up Never gonna let you down Never gonna run around, and desert you Never gonna make you cry Never gonna say goodbye never gonna tell a lie, and hurt you Never gonna give you up Never gonna let you down Never gonna run around, and desert you Never gonna make you cry Never gonna say goodbye never gonna tell a lie, and hurt you Give you up Never gonna give, never gonna give Give you up Never gonna give, never gonna give We've known each other, for so long Your heart's been aching but, you're too shy to say it Inside we both know what's been going on We know the game and we're gonna play it I just wanna tell you how I'm feelin Gotta make you, understand Never gonna give you up Never gonna let you down Never gonna run around, and desert you Never gonna make you cry Never gonna say goodbye never gonna tell a lie, and hurt you Never gonna give you up Never gonna let you down Never gonna run around, and desert you Never gonna make you cry Never gonna say goodbye never gonna tell a lie, and hurt you")
+    except ValueError:
+            print("We're no strangers to love You know the rules, and so do I A full commitment is what I'm thinking of You wouldn't get this from any other guy I just wanna tell you how I'm feeling Gotta make you, understand Never gonna give you up Never gonna let you down Never gonna run around and desert you Never gonna make you cry Never gonna say goodbye Never gonna tell a lie, and hurt you We've known each other, for so long Your heart's been aching but, you're too shy to say it Inside we both know what's been going on We know the game and we're gonna play it And if you ask me how I'm feeling Don't tell me you're too hot to see Never gonna give you up Never gonna let you down Never gonna run around, and desert you Never gonna make you cry Never gonna say goodbye never gonna tell a lie, and hurt you Never gonna give you up Never gonna let you down Never gonna run around, and desert you Never gonna make you cry Never gonna say goodbye never gonna tell a lie, and hurt you Give you up Never gonna give, never gonna give Give you up Never gonna give, never gonna give We've known each other, for so long Your heart's been aching but, you're too shy to say it Inside we both know what's been going on We know the game and we're gonna play it I just wanna tell you how I'm feelin Gotta make you, understand Never gonna give you up Never gonna let you down Never gonna run around, and desert you Never gonna make you cry Never gonna say goodbye never gonna tell a lie, and hurt you Never gonna give you up Never gonna let you down Never gonna run around, and desert you Never gonna make you cry Never gonna say goodbye never gonna tell a lie, and hurt you")
+
+personal_details = sorted(personal_details)
+for i in range(len(personal_details)):
+    print(f"{i+1}. {personal_details[i][0]} {personal_details[i][1]}")
