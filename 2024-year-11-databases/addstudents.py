@@ -20,19 +20,20 @@ while run_program:
     print("1. Add student")
     print("2. Search for student")
     print("3. See all students")
-    print("4. Quit")
+    print("4. Update student")
+    print("5. Quit")
 
     # get menu selection
     get_selection = True
     while get_selection:
         try:
             selection = int(input("Enter selection: "))
-            if selection < 1 or selection > 4:
-                print("You must enter a number from 1-4")
+            if selection < 1 or selection > 5:
+                print("You must enter a number from 1-5")
             else:
                 get_selection = False
         except ValueError:
-            print("Only numbers from 1-4 allowed.")
+            print("Only numbers from 1-5 allowed.")
 
     # Now that we have the selection, do what the user wants
 
@@ -60,6 +61,16 @@ while run_program:
     ### Search for a student ###
     elif selection == 2:
         print("\nSearch for a student")
+        search = input("Enter name: ")
+        search_like = f"%{search}%"
+        cursor.execute("SELECT * FROM student WHERE firstName LIKE ? OR lastName LIKE ?", (search_like, search_like))
+        results = cursor.fetchall()
+        if len(results) == 0:
+            print("No results found")
+        else:
+            print(f"{'First name':15} {'Last name':15} {'Tutor group':6}")
+            for student in results:
+                print(f"{student[1]:15} {student[2]:15} {student[3]:6}")
 
     ### Show all students ###
     elif selection == 3:
@@ -68,6 +79,20 @@ while run_program:
         results = cursor.fetchall()
         for student in results:
             print(f"{student[0]:5}. {student[1]:12} {student[2]:12} {student[3]:6} {student[4]:15} {student[5]:8}")
+
+    ### Update a student ###
+    elif selection == 4:
+        print("\nUpdate a student")
+        update = input("Enter name: ")
+        update_like = f"%{update}%"
+        cursor.execute("SELECT * FROM student WHERE firstName LIKE ? OR lastName LIKE ?", (update_like, update_like))
+        results = cursor.fetchall()
+        if len(results) == 0:
+            print("No results found")
+        else:
+            print(f"{'First name':15} {'Last name':15} {'Tutor group':6}")
+            for student in results:
+                print(f"{student[1]:15} {student[2]:15} {student[3]:6}")
 
     ### Quit program ###
     else:
