@@ -57,6 +57,24 @@ while quit_not_entered:
         for team in results:
             print(f"{team[0]:22} {team[1]:6}%")
 
+    # The user wants to see what teams scored the most goals
+    if slelection == 4:
+        cursor.execute("SELECT team, goals FROM pl ORDER BY goals DESC")
+        results = cursor.fetchall()
+        print("\n##########GOALS TABLE###########")
+        print("Team               Goals Scored")
+        for team in results:
+            print(f"{team[0]:19} {team[1]:6}")
+
+    # The user wants to see which teams outperformed their expected goals by the most
+    if slelection == 5:
+        cursor.execute("SELECT team, goals, xG, (goals - xG) AS diff FROM pl")
+        results = cursor.fetchall()
+        print("\n###############EXPECTED GOALS TABLE################")
+        print("Team               Goals Scored   xG     Difference")
+        for team in results:
+            print(f"{team[0]:19} {team[1]:6} {team[2]:10} {round(team[3], 1):10}")
+
     # If the user selected "Quit", quit the program.
     if slelection == 6:
         quit_not_entered = False
